@@ -84,7 +84,7 @@ O(n) (worst case: if all numbers unique, store them all).
 ✅ Fastest and most commonly used approach.'''
 def containsDuplicate(nums):
     seen = set()
-    for num in nums:
+    for num in nums: 
         if num in seen:       # already seen → duplicate
             return True
         seen.add(num)         # store new number
