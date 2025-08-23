@@ -1,23 +1,28 @@
-class codec:
-    def encode(self,strs):
-        encode = " "
-        for word in strs:
-            encode += word + " "
-        return encode.strip()
-    def decode(self,encode):
+class Solution:
+    def encode(self, strs):
+        """Encode a list of strings to a single string."""
+        encoded = ""
+        for s in strs:
+            # Prefix each string with its length and a special separator '#'
+            encoded += str(len(s)) + "#" + s
+        return encoded
+
+    def decode(self, encoded):
+        """Decode a single string back into a list of strings."""
         result = []
         i = 0
-        while i < len(encode):
+        while i < len(encoded):
+            # Find the '#' which separates length from string
             j = i
-            while j < len(encode) and encode[j] != " ":
+            while encoded[j] != "#":
                 j += 1
-            result.append(encode[i:j])
-            i = j + 1
+            length = int(encoded[i:j])
+            # Extract the string of that length
+            result.append(encoded[j+1:j+1+length])
+            i = j + 1 + length
         return result
+
 # Example usage:
-codec_instance = codec()
-encoded_string = codec_instance.encode(["hello", "world", "this", "is", "codec"])
-print("Encoded String:", encoded_string)
-'''✅ T.C ≈ O(L) (but technically could degrade toward O(n²·k) due to repeated concatenation).
-✅ S.C = O(L)
-'''
+solution = Solution()
+encoded_str = solution.encode(["hello", "world"])
+print("Encoded:", encoded_str)
