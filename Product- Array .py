@@ -52,4 +52,4 @@ def product(nums):
     return answer
 # Example usage
 nums = [1, 2, 3, 4]
-print(product(nums))  # Output: [24, 12, 8, 6
+print(product(nums))  # Output: [24, 12, 8, 6]
