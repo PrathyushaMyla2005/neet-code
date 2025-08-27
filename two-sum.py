@@ -57,3 +57,39 @@ print(twoSum(nums, target))   # [0, 1]
 nums = [3, 2, 4]
 target = 6
 print(twoSum(nums, target)) 
+def two_Sum(nums,target):
+    hashMap = {}
+    for i in range(0,len(nums)):
+        search = target - nums[i]
+        if search in hashMap:
+            return [i,hashMap[search]]
+        hashMap[nums[i]] = i
+nums = [2, 7, 11, 15]
+target = 9
+print(two_Sum(nums,target))
+'''✅ Final Answer
+
+Time Complexity: O(n)
+
+Space Complexity: O(n)
+Time Complexity (T.C)
+
+Let n = length of nums.
+
+Loop runs once for each element → O(n)
+
+Inside loop:
+
+Dictionary lookup (search in hashMap) = O(1) average.
+
+Dictionary insert (hashMap[nums[i]] = i) = O(1) average.
+
+👉 Total T.C = O(n)
+
+💾 Space Complexity (S.C)
+
+We store elements in hashMap.
+
+In worst case (when no solution until the end), we store all n numbers.
+
+👉 Total S.C = O(n) '''

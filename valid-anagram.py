@@ -25,14 +25,14 @@ Space: O(1) (in-place sort in Python).
 
 '''
 #sorting
-def isAnagram(s, t):
+'''def isAnagram(s, t):
     if len(s) != len(t):
         return False
-    return sorted(s) == sorted(t)
+    return sorted(s) == sorted(t) #here we sort both are equal    
 
 # Example
 print(isAnagram("anagram", "nagaram"))  # True
-print(isAnagram("rat", "car"))          # False
+print(isAnagram("rat", "car"))          # False'''
 '''Approach 2: HashMap / Frequency Count (Optimal)
 Logic
 
@@ -44,7 +44,6 @@ Complexity
 Counting each string → O(n)
 
 Space: O(1) (fixed alphabet, at most 26 lowercase letters).
-'''
 def  is_anagram_hashmap(s1,s2):
     count1={}
     count2={}
@@ -54,7 +53,7 @@ def  is_anagram_hashmap(s1,s2):
         count2[char]=count2.get(char,0)+1
         return count1==count2
 '''
-Approach 3: Single HashMap (Efficient)
+'''Approach 3: Single HashMap (Efficient)
 Logic
 
 Use one dictionary.
@@ -65,10 +64,8 @@ If all counts become zero → anagram.
 HashMap (1 dict)
 O(n)
 O(1)
-Most efficient
-
-'''
-class Solution:
+Most efficient'''
+'''class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
@@ -84,6 +81,36 @@ class Solution:
             if val != 0:
                 return False
         return True
-# Example
+# Example 
 print(isAnagram("listen", "silent"))  # True
-print(isAnagram("hello", "bello"))    # False
+print(isAnagram("hello", "bello"))  '''  # False
+def is_anagram(s, t):
+    hashMap = {}
+    
+    # Count frequency of characters in t
+    for x in t:
+        if x in hashMap:
+            hashMap[x] = hashMap[x] + 1
+        else:
+            hashMap[x] = 1
+    
+    # Decrease frequency for characters in s
+    for x in s:
+        if x in hashMap:
+            hashMap[x] = hashMap[x] - 1
+        else:
+            return False
+    
+    # Finally check if all values are 0
+    for x in hashMap:
+        if hashMap[x] != 0:
+            return False
+    return True
+
+
+# Testing
+print(is_anagram("listen", "silent"))  # True
+print(is_anagram("hello", "bello"))    # False
+'''Time Complexity: O(n + m)
+
+Space Complexity: O(k) → O(1) if alphabet is fixed (like lowercase English), else O(n)'''

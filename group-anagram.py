@@ -10,6 +10,29 @@ def groupAnagrams_sort(words):
         key = ''.join(sorted(word))
         anagrams[key].append(word)
     return list(anagrams.values())
+    '''key = ''.join(sorted(word))
+sorted("eat") → ['a', 'e', 't']
+
+''.join(...) → "aet"
+
+So, key = "aet"
+
+python
+Copy
+Edit
+anagrams[key].append(word)
+anagrams["aet"] doesn’t exist yet → creates [] automatically
+
+Append "eat" → ["eat"]
+
+👉 Now:
+anagrams = {"aet": ["eat"]}
+
+Second iteration (word = "tea"):
+sorted("tea") → ['a', 'e', 't'] → "aet"
+
+
+'''
 
 # Example Walkthrough (Sorting Based):
 # Input: ["eat","tea","tan","ate","nat","bat"]
@@ -31,7 +54,7 @@ def groupAnagrams_sort(words):
 # Solution 2: Optimal (Character Count Based)
 # --------------------------------------------
 def groupAnagrams(words):
-    anagrams = defaultdict(list)
+    anagrams = defaultdict(list) 
     for word in words:
         count = [0] * 26  # frequency of letters a–z
         for char in word:
@@ -61,3 +84,15 @@ def groupAnagrams(words):
 # Test
 # --------------------------------------------
 print(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+'''First char = 'e'
+
+ord('e') = 101
+
+ord('a') = 97
+
+ord('e') - ord('a') = 101 - 97 = 4
+👉 So 'e' is at index 4 (0-based, 'a' = 0, 'b' = 1, 'c' = 2, ... 'e' = 4)
+
+Increase count[4] by 1
+
+count = [0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]'''
