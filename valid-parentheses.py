@@ -112,7 +112,7 @@ def is_valid(s):
     mapping = {')': '(', '}': '{', ']': '['}
     for char in s:
         if char in mapping:
-            top = stack.pop() if stack else '#'
+            top = stack.pop() if stack else '#' # stack is empty put # thes
             if mapping[char] != top:
                 return False
             else:

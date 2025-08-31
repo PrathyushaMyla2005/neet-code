@@ -38,11 +38,15 @@ Use two pointers, left and right, starting from both ends of the string.
 
 Skip non-alphanumeric characters.
 
-Compare characters ignoring case.'''
+Compare characters ignoring case.
+S.C=O(1)
+T.C=O(n)'''
 def valid_palindrome(s):
     left,right = 0 ,len(s)-1
     while left < right:
-        while left < right and not s[left].isalnum():
+        while left < right and not s[left].isalnum(): #isalnum means spl chr not all atoz oto9 here is not means   true =not false
+            #false = not true
+
             left += 1
         while left < right and not s[right].isalnum():
             right -= 1
