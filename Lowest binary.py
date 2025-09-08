@@ -259,7 +259,7 @@ if __name__ == "__main__":
     print(f"LCA of {p.val} and {q.val} = {lca.val}")  # Output: 2
 
     # ---------- Example 3 ----------
-    p = root.left.right.left    # Node 3
+    p = root.left.right.left    # Node 3 
     q = root.left.right.right   # Node 5
     lca = lowestCommonAncestor(root, p, q)
     print(f"LCA of {p.val} and {q.val} = {lca.val}")  # Output: 4
